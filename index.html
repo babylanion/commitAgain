@@ -1,0 +1,678 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <title>Auto-cms</title>
+    <link href="http://cms.data.auto.ifeng.com/statics/css/reset.css?v=1.1" rel="stylesheet" type="text/css" />
+    <link href="http://cms.data.auto.ifeng.com/statics/css/zh-cn-system.css?v=1.2" rel="stylesheet" type="text/css" />
+    <link href="http://cms.data.auto.ifeng.com/statics/css/table_form.css?v=3" rel="stylesheet" type="text/css" />
+    <link href="http://cms.data.auto.ifeng.com/statics/css/dialog.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/dialog.js?v=1.0"></script>
+    <link rel="stylesheet" type="text/css" href="http://cms.data.auto.ifeng.com/statics/css/style/zh-cn-styles1.css" title="styles1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="http://cms.data.auto.ifeng.com/statics/css/style/zh-cn-styles2.css" title="styles2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="http://cms.data.auto.ifeng.com/statics/css/style/zh-cn-styles3.css" title="styles3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="http://cms.data.auto.ifeng.com/statics/css/style/zh-cn-styles4.css" title="styles4" media="screen" />
+    <script language="javascript" type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/jquery.min.js?v=1.72"></script>
+    <script language="javascript" type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/admin_common.js?v=5.3"></script>
+    <script language="javascript" type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/styleswitch.js"></script>
+    <script language="javascript" type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/formvalidator.js?v=2" charset="UTF-8"></script>
+    <script language="javascript" type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/formvalidatorregex.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+        window.focus();
+
+
+        function sousuo(){
+            var content=$("#content").val();
+            var menuid=$("#menuid").val();
+            if(menuid==54){
+                window.location.href="?m=admin&c=admin_manage&a=init&content="+content+"&menuid="+menuid;
+            }else if(menuid==50){
+                window.location.href="?m=admin&c=role&a=init&content="+content+"&menuid="+menuid;
+            }
+        }
+        function souname(){
+            var conname=$("#conname").val();
+            var menuid=$("#menuid").val();
+            window.location.href="?m=admin&c=admin_manage&a=init&conname="+conname+"&menuid="+menuid;
+        }
+
+        function keyword_search()
+        {
+            var content=$("#content").val();
+            var menuid=$("#menuid").val();
+            window.location.href="?m=content&c=search_keyword&a=init&search_keyword="+content+"&menuid="+menuid;
+
+        }
+    </script>
+</head>
+<body>
+<style type="text/css">
+    html{_overflow-y:scroll}
+</style><style type="text/css">
+    html,body{ background:#e2e9ea}
+</style>
+<script type="text/javascript">
+    <!--
+    var charset = 'utf-8';
+    var uploadurl = 'http://y0.ifengimg.com/auto/';
+    //-->
+</script>
+<script type="text/javascript" src="http://auto.ifeng.com/js/2013/0528/109.js?v=1.1" ></script>
+<script language="javascript" type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/content_addtop.js?v=2.4"></script>
+<script language="javascript" type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/colorpicker.js"></script>
+<script language="javascript" type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/hotkeys.js"></script>
+<script language="javascript" type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/cookie.js"></script>
+<script language="javascript" type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/admin_relatedSeries.js?v=1.1"></script>
+<script type="text/javascript" src="http://data.auto.ifeng.com/frag/selectJs/brand.js?v=1.0" ></script>
+<script type="text/javascript" src="http://auto.ifeng.com/js/2013/0412/98.js?v=1" ></script>
+<script type="text/javascript" src="http://auto.ifeng.com/js/2013/0420/101.js?v=6" ></script>
+<script type="text/javascript">var catid=571; var special_typeid = -1    ;var columnist = "0";</script>
+<script src="http://cms.data.auto.ifeng.com/statics/js/editor.js" type="text/javascript" defer="defer"></script>
+
+<div id='cms_userid' style='display:none'></div>
+
+
+<form name="myform" id="myform" action="?m=content&c=content&a=edit" method="post" enctype="multipart/form-data">
+    <div class="addContent">
+        <div class="crumbs">当前位置：内容  > 内容发布管理 > 修改内容</div>
+        <div class="col-right">
+            <div class="col-1">
+                <div class="content pad-6">
+                    <h6> 推荐图</h6>
+                    <input type='text' name='info[thumb]' id='thumb' value='http://p2.ifengimg.com/auto/image/2016/0519/025944146.jpg' size='50' class='input-text' />  <input type='button' class='button' onclick="flashupload('thumb_images', '附件上传','thumb',submit_images,'image,1,jpg|jpeg|gif|png|bmp','content','571')"/ value='上传图片'><script type="text/javascript">function crop_cut_thumb(id){
+                    if (id=='') { alert('请先上传缩略图');return false;}
+                    window.top.art.dialog({title:'裁切图片', id:'crop', iframe:'index.php?m=content&c=content&a=public_crop&module=content&catid='+catid+'&picurl='+encodeURIComponent(id)+'&input=thumb&preview=', width:'680px', height:'480px'}, 	function(){var d = window.top.art.dialog({id:'crop'}).data.iframe;
+                        d.uploadfile();return false;}, function(){window.top.art.dialog({id:'crop'}).close()});
+                };</script>                                                <h6> 相关文章</h6>
+                    <input type='hidden' name='info[relation]' id='relation' value='' style='50' >
+                    <ul class="list-dot" id="relation_text"></ul>
+                    <div>
+                        <input type='button' value="添加相关" onclick="omnipotent('selectid','?m=content&c=content&a=public_relationlist&modelid=1','添加相关文章',1)" class="button" style="width:66px;">
+<span class="edit_content">
+<input type='button' value="显示已有" onclick="show_relation(1,1055982)" class="button" style="width:66px;">
+</span>
+                    </div>                                                <h6> 手机焦点图推荐</h6>
+                    <select name='info[ipush_focus]' id='ipush_focus' ><option value="0" selected>选择帧数</option><option value="1" >新车</option><option value="2" >导购</option><option value="3" >试驾</option><option value="4" >文化</option></select>                                                <h6> 转向链接</h6>
+                    <input type="hidden" name="info[islink]" value="0"><input type="text" name="linkurl" id="linkurl" value="" size="25" maxlength="255" disabled class="input-text"> <input name="info[islink]" type="checkbox" id="islink" value="1" onclick="ruselinkurl();" > <font color="red">转向链接</font>                                                <h6> 内容页模板</h6>
+                    <select name="info[template]" id="template"><option value='' selected>请选择</option><option value="show" >文章内容页(show.html)</option><option value="show_201503" >内容页201503(show_201503.html)</option><option value="show_aizhubo" >show_aizhubo.html</option><option value="show_hudong" >互动(show_hudong.html)</option><option value="show_hudong_news" >互动-新模板(news.ifeng.com)(show_hudong_news.html)</option><option value="show_zhuanlan" >专栏内容页(show_zhuanlan.html)</option><option value="show_zixun_test" >测试使用(show_zixun_test.html)</option></select>                                                <h6> 允许评论</h6>
+                    <label class="ib" style="width:88px"><input type="radio" name='info[allow_comment]'  id="allow_comment_1" checked value="1"> 允许评论</label><label class="ib" style="width:88px"><input type="radio" name='info[allow_comment]'  id="allow_comment_0"  value="0"> 不允许评论</label>                                                <h6> 关联车系</h6>
+                    <input type="button" name="relatedCars" id="relatedCars" onclick="bindSeries('relatedSeries','?m=content&c=relatedSeries&a=listBindSeries&newsid=1055982&modelid=1','关联车系',1,780)" value="关联车系" class="button"> <input type="hidden" name="info[relatedseries]" id="relatedseries" value="东风,20111,菱智,2384,,0,1"/>                                                <h6> 发布时间</h6>
+                    <link rel="stylesheet" type="text/css" href="http://cms.data.auto.ifeng.com/statics/js/calendar/jscal2.css"/>
+                    <link rel="stylesheet" type="text/css" href="http://cms.data.auto.ifeng.com/statics/js/calendar/border-radius.css"/>
+                    <link rel="stylesheet" type="text/css" href="http://cms.data.auto.ifeng.com/statics/js/calendar/win2k.css"/>
+                    <script type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/calendar/calendar.js"></script>
+                    <script type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/calendar/lang/en.js"></script><input type="text" name="info[inputtime]" id="inputtime" value="2016-05-19 15:32:24" size="21" class="date" readonly>&nbsp;<script type="text/javascript">
+                    Calendar.setup({
+                        weekNumbers: true,
+                        inputField : "inputtime",
+                        trigger    : "inputtime",
+                        dateFormat: "%Y-%m-%d %H:%M:%S",
+                        showTime: true,
+                        minuteStep: 1,
+                        onSelect   : function() {this.hide(); if(keepstate){if(typeof keepstate == "function"){keepstate();}} }
+                    });
+                </script>
+                    <input type="hidden" name="info[status]" value="99" id="status"/>
+
+                </div>
+                <!--分页begin-->
+                <div class="content pad-6" id="pageinfo">
+                    <h6>分页关联车型</h6>
+                    <div class="explain-col">
+                        <p>品牌：<select name="brand" id="brandId" style="width:120px"></select></p>
+                        <p>车系：<select name="serial" id="serialId" style="width:120px"></select></p>
+                        <p>车型：<select name="car" id="carId" style="width:120px"></select></p>
+                        <p>页码：<select name="pageNum" id="pageNum" style="width:50px"></select></p>
+                        <p>标题：<input type="text" name="title" id="ptitle" size="14" /></p>
+                        <p><input type="button" name="dosubmit" class="button" id="relateButton" value="添加" /><input type="button" name="dosubmit" class="button" id="cancelButton" value="取消" style="display:none;" /></p>
+                    </div>
+                    <style>
+                        #pagelst li{ line-height:22px; height:auto;}
+                        #pagelst li span{ margin-right:10px;}
+                        #pagelst li .h{ display:none;}
+                    </style>
+                    <ul id="pagelst"></ul>
+                </div>
+            </div>
+            <script>
+                //联动菜单初始化
+                var relatedSeries = new relatedBSC({brandId:"brandId",serialId:"serialId",carId:"carId"})
+                relatedSeries.init();
+                //添加分页关联
+                $("#relateButton").click(function(){
+                    var oEditor = CKEDITOR.instances.content;
+                    var s=oEditor.getData();
+                    var pi=$("#pageNum").val()==null?1:$("#pageNum").val();
+                    if($(this).val()=="添加"){
+                        if(pi==null || pi==""){
+                            alert("请添加分页");
+                            return;
+                        }
+                        if($("#pagelst").html().indexOf("第"+pi+"页")>-1){
+                            alert("绑定页码已存在");
+                            return;
+                        }
+                    }
+
+                    //s=s.replace("[page][/page]","[page]"+$("#title").val()+"[/page]");
+                    var sarr=s.split("[page]");
+                    var ts='';
+                    for(var i=0;i<sarr.length;i++){
+                        if(i==pi){
+                            ts+=sarr[i].replace(/([\s\S]+)?\[\/page\]/,'[page]'+$("#ptitle").val()+'[/page]');
+                        }
+                        else{
+                            ts+=sarr[i].replace(/([\s\S]+)?\[\/page\]/,'[page]$1[/page]')
+                        }
+                    }
+
+                    oEditor.setData(ts);
+
+
+                    //数据封装
+                    var temp = {};
+                    temp.brandName = $("#brandId option:selected").text().split("-")[1];
+                    temp.brandValue = $("#brandId").val();
+                    temp.serialName = $("#serialId option:selected").text();
+                    temp.serialValue = $("#serialId").val();
+                    temp.carName = $("#carId option:selected").text();
+                    temp.carValue = $("#carId").val();
+                    temp.title = $("#ptitle").val();
+                    if(temp.serialValue == '-1'){
+                        temp.serialValue = "";
+                        temp.serialName = "";
+                    }
+                    if(temp.carValue == '-1'){
+                        temp.carValue = "";
+                        temp.carName = "";
+                    }else{
+                        temp.carName = $("#carId option:selected").text();
+                    }
+                    temp.pageNum = pi;
+
+                    if($(this).val()=="添加"){
+                        if(pi=="all"){
+                            $("#pagelst").html('');
+                            for(var x=0;x<sarr.length-1;x++){
+                                $("#pagelst").append('<li><span>第'+(x+1)+'页</span><a href="javascript:void(0);" class="page_edit">编辑</a> | <a href="javascript:void(0);" class="page_del">删除</a><p>'+temp.brandName+temp.serialName+temp.carName+'</p><div class="h">'+(x+1)+';'+temp.brandName+','+temp.brandValue+';'+temp.serialName+','+temp.serialValue+';'+temp.carName+','+temp.carValue+';'+temp.title+';</div></li>');
+                            }
+                        }
+                        else{
+                            $("#pagelst").append('<li><span>第'+temp.pageNum+'页</span><a href="javascript:void(0);" class="page_edit">编辑</a> | <a href="javascript:void(0);" class="page_del">删除</a><p>'+temp.brandName+temp.serialName+temp.carName+'</p><div class="h">'+temp.pageNum+';'+temp.brandName+','+temp.brandValue+';'+temp.serialName+','+temp.serialValue+';'+temp.carName+','+temp.carValue+';'+temp.title+';</div></li>');
+                        }
+                    }
+                    else{
+                        $("#pagelst li").each(function(){
+                            if($(this).find("span").html().indexOf("第"+temp.pageNum+"页")>-1){
+                                $(this).find("p").html(temp.brandName+temp.serialName+temp.carName);
+                                $(this).find(".h").html(temp.pageNum+';'+temp.brandName+','+temp.brandValue+';'+temp.serialName+','+temp.serialValue+';'+temp.carName+','+temp.carValue+';'+temp.title+';');
+                                return;
+                            }
+                        });
+                        $(this).val("添加");
+                        $("#cancelButton").hide();
+                    }
+                    addRelatedseries();
+                });
+                //编辑分页
+                $(".page_edit").live("click",function(){
+                    //1;奥迪,20004; A4L,2593;2013款 30 TFSI 手动舒适型,24879;111;
+                    var h=$(this).siblings(".h").html().replace(/\&nbsp;/g,"").split(";");
+                    var brandValue = h[1].split(",")[1];
+                    var serialValue = " "+h[2].split(",")[1];
+                    var carValue = h[3].split(",")[1];
+                    var pageNum =h[0];
+                    var tit=h[4];
+
+                    relatedSeries.resetValue(brandValue, serialValue, carValue);
+                    $("#ptitle").val(tit);
+
+                    /*$("#pageNum option").each(function(i,v){
+                     if($("#pageNum option").size()>2){
+                     if(i==pageNum){
+                     $(this).siblings().attr("selected",false);
+                     $(this).attr("selected",true);
+                     return;
+                     }
+                     }
+                     else{
+                     if(i+1==pageNum){
+                     $(this).siblings().attr("selected",false);
+                     $(this).attr("selected",true);
+                     return;
+                     }
+                     }
+                     });*/
+                    $("#pageNum option[value!='"+pageNum+"']").removeAttr("selected");
+                    $("#pageNum option[value='"+pageNum+"']").attr("selected", "true");
+                    $("#relateButton").val("保存");
+                    $("#cancelButton").show();
+                });
+                //取消编辑分页
+                $("#cancelButton").bind("click",function(){
+                    $("#relateButton").val("添加");
+                    $("#cancelButton").hide();
+                });
+                //删除分页
+                $(".page_del").live("click",function(){
+                    var h=$(this).siblings(".h").html().split(";");
+                    $(this).parent().remove();
+                    var oEditor = CKEDITOR.instances.content;
+                    var s=oEditor.getData();
+                    var sarr=s.split("[page]");
+                    var ts='';
+                    for(var i=0;i<sarr.length;i++){
+                        if(i==h[0]){
+                            ts+=sarr[i].replace(/([\s\S]+)?\[\/page\]/,'');
+                        }
+                        else{
+                            ts+=sarr[i].replace(/([\s\S]+)?\[\/page\]/,'[page]$1[/page]')
+                        }
+                    }
+                    oEditor.setData(ts);
+                    if(h[0]>1){
+                        $("#pagelst li").each(function(i,v){
+                            if(i>=h[0]-1){
+                                var z=$(this).find(".h").html().split(";")[0];
+                                $(this).find(".h").html($(this).find(".h").html().replace(/^\d+;/,(z[0]-1)+";"));
+                                $(this).find("span").html("第"+(z[0]-1)+"页");
+                            }
+                        });
+                    }
+                    if(sarr.length<=3){
+                        $("#pageNum option").each(function(){
+
+                            if($(this).val()=="all"){
+                                $(this).remove();
+                                return;
+                            }
+                        });
+                    }
+                    $("#pageNum option").eq($("#pageNum option").size()-1).remove();
+                    addRelatedseries();
+                });
+
+                function addRelatedseries(){
+                    var v='';
+                    $("#pagelst li").each(function(){
+                        var h=$(this).find(".h").html().replace(/\&nbsp;/g,"").split(";");
+                        if(v==''){
+                            v+=''+h[1]+','+h[2]+','+h[3]+','+h[0];
+                        }
+                        else{
+                            v+='|'+h[1]+','+h[2]+','+h[3]+','+h[0];
+                        }
+                    });
+                    $("#relatedseries").val(v);
+                }
+
+                var titles = "";
+
+                titles = titles.split("|");
+
+                function getrelval( page ){
+                    var value = $("#relatedseries").val();
+                    var temp = value.split("|");
+                    for(var i= 0; i < temp.length; i++){
+                        var temps = temp[i].split(",");
+                        if(temps[6] == page)
+                            return temps;
+                    }
+                    return Array("", "", "", "", "", "",page);
+                }
+
+                //编辑初始化
+                (function($){
+                    var length = 0;
+                    var value = $("#relatedseries").val();
+                    var tlength = titles.length;
+                    var slength = 0;
+                    var temp = "";
+                    if(value){
+                        temp = value.split("|");
+                        slength = temp.length;
+                    }
+                    if(tlength > slength){
+                        length = tlength;
+                    }else{
+                        length = slength;
+                    }
+                    var html = '';
+                    var page = '<option value="all">全</option>';
+                    for( var i = 0 ; i < length; i++){
+                        if(titles[i]){
+                            title = titles[i];
+                        }else{
+                            title = "";
+                        }
+
+
+                        var temps = getrelval(i+1);
+                        html+='<li><span>第'+(i+1)+'页</span><a href="javascript:void(0);" class="page_edit">编辑</a> | <a href="javascript:void(0);" class="page_del">删除</a><p>'+temps[0]+temps[2]+temps[4]+'</p><div class="h">'+temps[6]+';'+temps[0]+','+temps[1]+';'+temps[2]+','+temps[3]+';'+temps[4]+','+temps[5]+';'+title+';</div></li>';
+                        page+='<option value="'+(i+1)+'">'+(i+1)+'</option>';
+
+                    }
+                    jQuery("#pagelst").html(html);
+                    jQuery("#pageNum").html(page);
+
+                })(jQuery)
+
+
+            </script>
+
+
+
+        </div>
+        <a title="展开与关闭" class="r-close" hidefocus="hidefocus" style="outline-style: none; outline-width: medium;" id="RopenClose" href="javascript:;"><span class="hidden">展开</span></a>
+        <div class="col-auto">
+            <div class="col-1">
+                <div class="content pad-6">
+                    <table width="100%" cellspacing="0" class="table_form">
+                        <tbody>
+                        <tr>
+                            <th width="80"> <font color="red">*</font> 栏目                                                                                           </th>
+                            <td><input type="hidden" name="info[catid]" value="571" id="catid"><select name="parent" id="parent" ><option value="-1">请选择栏目</option><option value="586" selected>新车</option><option value="606">试驾</option><option value="602">导购</option><option value="587">行业</option><option value="564">文化</option><option value="597">用户运营</option><option value="588">厂商资讯</option><option value="600">商用车</option><option value="585">购车</option><option value="591">赛事</option></select><select name="child" id="child"><option value="-1">请选择子栏目</option><option value="571" selected>国内新车</option><option value="572">海外新车</option><option value="573">谍照</option><option value="574">新车图解</option></select><script type="text/javascript"> var column = new Array(["586","新车","1","586,571,572,573,574"],["589","厂商新闻","0","589"],["606","试驾","1","606,575,607,608,609"],["590","测试栏目","0","590"],["602","导购","1","602,576,603,604,605,583,613"],["587","行业","1","587,577,578,579,580,584"],["564","文化","1","564,565,567,568,569,570,611"],["597","用户运营","1","597,598,599,610,612"],["588","厂商资讯","1","588,589,590"],["600","商用车","1","600,601"],["565","游记","0","565"],["567","人文","0","567"],["568","酷车","0","568"],["569","赛事驾驶","0","569"],["570","文化专栏","0","570"],["571","国内新车","0","571"],["572","海外新车","0","572"],["573","谍照","0","573"],["574","新车图解","0","574"],["585","购车","1","585,581"],["575","抢先试驾","0","575"],["576","多车导购","0","576"],["581","降价","0","581"],["577","业内新闻","0","577"],["578","产业评论","0","578"],["579","访谈","0","579"],["580","调研报告","0","580"],["584","行业专栏","0","584"],["591","赛事","1","591,593,594,595,596"],["593","越野","0","593"],["594","拉力","0","594"],["595","场地","0","595"],["596","F1","0","596"],["598","互动","0","598"],["599","i主播","0","599"],["601","商用车新闻","0","601"],["603","购车指南","0","603"],["604","新车解析","0","604"],["605","销量数据","0","605"],["583","用车手册","0","583"],["607","凤凰测","0","607"],["608","汽车达人秀","0","608"],["609","砖家不知道","0","609"],["610","资讯","0","610"],["611","设计众议院","0","611"],["612","凰叔","0","612"],["613","LADY咔咔","0","613"]);</script>  </td>
+                        </tr>
+                        <tr>
+                            <th width="80"> <font color="red">*</font> 标题                                                                                           </th>
+                            <td><input type="text" style="width:400px;" name="info[title]" id="title" value="全新菱智成都车展上市 内外设计变化大" style="color:" class="measure-input "  onkeyup="strlen_verify(this, 'title_len', 80);"/><input type="hidden" name="style_color" id="style_color" value="">
+                                <input type="hidden" name="style_font_weight" id="style_font_weight" value="">  </td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 副标题                                                                                           </th>
+                            <td><input type="text" name="info[middle_title]" id="middle_title" size="50" value="内外设计变化大" class="input-text"  >  </td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 短标题                                                                                           </th>
+                            <td><input type="text" name="info[short_title]" id="short_title" size="50" value="全新菱智成都车展上市" class="input-text"  >  </td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 权重                                                                                           </th>
+                            <td><input type="text" name="info[weight]" id="weight" size="50" value="75" class="input-text"  >  文章权重</td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 关键词                                                                                           </th>
+                            <td><input type='text' name='info[keywords]' id='keywords' value='菱智 全新菱智 成都车展' style='width:280px'   class='input-text'>  多关键词之间用空格或者“,”隔开</td>
+                        </tr>
+                        <tr>
+                            <th width="80"> <font color="red">*</font> 来源                                                                                           </th>
+                            <td><input type='text' name='info[copyfrom]' id='copyfrom' value='凤凰汽车' style='width: 400px;' class='input-text'><select name='copyfrom_data' id='copyfrom_data' ><option value="0" >≡请选择≡</option><option value="1" selected>凤凰汽车</option></select>  </td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 作者                                                                                           </th>
+                            <td><input type="text" name="info[author]" id="author" size="50" value="综合报道" class="input-text"  >  作者</td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 摘要                                                                                           </th>
+                            <td><textarea name='info[description]' id='description' style='width:98%;height:46px;'  >凤凰汽车讯 近日，有经销商向凤凰汽车透露，东风风行全新一代菱智将会在2016年9月份举办的成都车展上市，届时也将公布其全系车型的售价。菱...</textarea>  </td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 所属专题                                                                                           </th>
+                            <td><select name="info[special]" id="special"><option value="">请选择所属专题</option><option value="523">星期三会客室0511</option><option value="522">星期三会客室0504</option><option value="521">星期三会客室0420</option><option value="520">第六季《赵福全研究院》</option><option value="519">2016北京车展前传</option><option value="516">2016北京车展</option><option value="515">2016凤凰补贴季wap版</option><option value="514">2016凤凰汽车补贴季</option><option value="513">星期三会客室0413</option><option value="512">新车上市发布会视频直播2</option><option value="511">信以立世</option><option value="510">《轩辕坛》：两会汽车热点解读</option><option value="509">2016汽车两会</option><option value="508">2016日内瓦车展</option><option value="507">《洞见汽车强国梦》新书发布会</option><option value="506">2015汽车盛典</option><option value="505">2016北美车展</option><option value="504">星期三会客室1223</option><option value="503">星期三会客室1209</option><option value="502">2015盛典投票</option><option value="501">双12PR</option><option value="500">2015双12购车wap版</option><option value="499">凤凰汽车1212购车狂欢节</option><option value="498">星期三会客室1111</option><option value="497">第四季《赵福全研究院》</option><option value="496">2015中国国际商用车展</option><option value="495">广州车展2015</option><option value="494">星期三会客室1104</option><option value="493">2015中国汽车产业区域经济峰会</option><option value="492">2015广州车展前传</option><option value="491">大众深陷尾气门</option><option value="490">2015中阿国家汽车合作论坛</option><option value="489">星期三会客室0826</option><option value="488">2015法兰克福车展</option><option value="487">2015成都车展特别策划：遥望迷与思</option><option value="486">2015天津论坛</option><option value="485">调查：天津港爆炸对车市影响</option><option value="484">新车上市发布会视频直播1</option><option value="483">数读-自主逆袭之风？</option><option value="482">2015成都车展</option><option value="481">星期三会客室0812</option><option value="480">車·晓 第28期 換帥救市立桿見影？</option><option value="479">中国品牌汽车出征米兰世博会</option><option value="478">星期三会客室0729</option><option value="477">2015中国汽车银川论坛</option><option value="476">中国主流汽车网络媒体高层论坛</option><option value="475">中国主流汽车网络媒体高层论坛</option><option value="474">颓市突围战——一张图解读上半年车市</option><option value="473">年中车市重头戏_盘点有心意</option><option value="472">星期三会客室0715</option><option value="471">星期三会客室0708</option><option value="470">車·晓 第27期 汽車產能過剩迷局難破</option><option value="469">星期三会客室0624</option><option value="468">《车迹》—腾势“独孤求败”</option><option value="467">星期三会客室0617</option><option value="466">星期三会客室0610</option><option value="465">数读-财报看自主</option><option value="464">风口上的5辆车</option><option value="463">2015全球汽车论坛</option><option value="462">星期三会客室0603</option><option value="461">2015中国汽车媒体人之夜</option><option value="460">星期三会客室0527</option><option value="459">深港澳车展2015</option><option value="458">星期三会客室0520</option><option value="457">亚洲消费电子展</option><option value="456">星期三会客室0513</option><option value="455">星期三会客室0506</option><option value="454">大众政变风波</option><option value="453">一汽东风换帅 深度反腐引发连锁反应</option><option value="452">一张图读懂车企十三五马歇尔计划</option><option value="451">解读新能源市场现状</option><option value="450">星期三会客室0429</option><option value="449">車·晓 第26期 車企官方降价真相幾何？</option><option value="448">第三季《赵福全研究院》</option><option value="447">全球大佬七宗最</option><option value="446">不能说的秘密</option><option value="445">上海车展2015</option><option value="444">星期三会客室0415</option><option value="443">上海车展特别策划：互联网造神马车</option><option value="442">i自游下载页面</option><option value="441">星期三会客室0408</option><option value="440">《轩辕坛》：当售后服务插上互联网翅膀</option><option value="439">《轩辕坛》：老龄化中国的交通挑战</option><option value="438">数读-大众2014年财报</option><option value="437">星期三会客室0401</option><option value="436">車·晓 第25期 平行進口車緣何叫好不叫座？</option><option value="435">星期三会客室0325</option><option value="434">苹果进军汽车之路</option><option value="433">凤凰汽车发起19家车企发布产品真国四承诺书</option><option value="432">凤凰汽车3.15特别策划-打不开的气囊</option><option value="431">2015汽车3·15：践行责任</option><option value="430">2015上海车展展前版</option><option value="429">北汽德奔签约</option><option value="428">看两会汽车热词</option><option value="427">锵锵话两会</option><option value="426">《轩辕坛》：两会汽车热点解读</option><option value="425">汽车两会十年进化史</option><option value="424">被忽略的八大两会提案</option><option value="423">元宵购车专题</option><option value="422">2015汽车两会</option><option value="421">车企营销讲年味</option><option value="420">2015日内瓦车展</option><option value="419">车·晓第24期汽车租赁为何逢节就涨</option><option value="418">中美市场豪华品牌对比分析</option><option value="417">《车迹》—奥迪新年道术兼修</option><option value="416">春节购车专题</option><option value="415">车·晓第23期经销商“造反”</option><option value="414">2015车市预言季</option><option value="413">车·晓第22期公车拍卖迈出实质性一步</option><option value="412">数读四大市场销量排行</option><option value="411">车迹·御风前行——访东风柳汽程道然/姚利文</option><option value="410">中国电动汽车百人会年度论坛</option><option value="409">2015北美车展</option><option value="408">汽车盛典</option><option value="407">2014汽车盛典专题</option><option value="406">深圳限购</option><option value="405">一周精彩82</option><option value="404">北京人心中最具价值汽车品牌评选</option><option value="403">一周精彩81</option><option value="402">聆听尊重改变—2015中国汽车凤凰论坛</option><option value="401">一周精彩80</option><option value="400">【车迹】跑赢日系大盘：姜君</option><option value="399">一周精彩79</option><option value="398">一周精彩78</option><option value="397">2014广州车展-流量</option><option value="396">《汽车非常道》国车红旗的故事</option><option value="395">第二季赵福全研究院</option><option value="394">一张图读懂中国汽车竞争力发展高峰论坛</option><option value="393">2014广州车展独家策划</option><option value="392">2014广州车展实拍</option><option value="391">2014洛杉矶车展</option><option value="390">2014中国汽车年度盛典候选车型</option><option value="389">第三届中国汽车新闻评奖颁奖典礼</option><option value="388">2014中国汽车竞争力发展高峰论坛</option><option value="387">2014悍马年会</option><option value="386">2014广州车展-最具看点车型</option><option value="385">2014广州车展-高端访谈</option><option value="384">2014广州车展</option><option value="383">《汽车非常道》汽车的新奇材料</option><option value="382">《车迹》-况锦文</option><option value="381">一周精彩77</option><option value="380">凤凰汽车公开课北京理工大学开讲</option><option value="379">2014广州车展 最女神第2季</option><option value="378">《汽车非常道》国外高端改装文化</option><option value="377">2014汽车制造中国峰会</option><option value="374">现车汇双11活动</option><option value="373">一周精彩76</option><option value="372">2014年度十佳发动机评选</option><option value="371">《汽车非常道》摩托车</option><option value="370">一周精彩75</option><option value="369">2014广州车展互动报名成功提示页面</option><option value="368">《汽车非常道》冠军赛车嘉年华</option><option value="367">一周精彩74</option><option value="366">2014gzqz</option><option value="365">李克强访德带给中国汽车业的利益</option><option value="364">别克昂科威上市</option><option value="363">2014全球汽车论坛</option><option value="362">《汽车非常道》畅谈汽车设计</option><option value="361">广州车展展前版</option><option value="360">北京现代ix25上市</option><option value="359">一周精彩73</option><option value="358">第四届车载信息服务产业年会</option><option value="357">2014巴黎车展</option><option value="356">一周精彩72</option><option value="355">雷克萨斯es信报名成功页面</option><option value="354">雷克萨斯ES 300h带您一起挑战续航极限</option><option value="353">英菲尼迪国产项目正式落地</option><option value="352">2014德国汉诺威国际车展IAA</option><option value="347">本田缤智上市</option><option value="346">2014巴黎车展策划</option><option value="345">《汽车非常道》圆石滩</option><option value="344">2014冠军赛车嘉年华SCCF</option><option value="343">一周精彩71</option><option value="342">《汽车非常道》九月第一期</option><option value="341">一周精彩70</option><option value="340">2014老爷车直播</option><option value="339">《汽车非常道》老爷车展第六期</option><option value="338">《汽车非常道》老爷车展第五期</option><option value="337">《车迹》—长安的新大陆</option><option value="336">《汽车非常道》老爷车展第四期</option><option value="335">2014天津论坛</option><option value="334">《汽车非常道》老爷车展第三期</option><option value="333">2014国际老爷车展WAP专题</option><option value="332">现车汇—宝马X5 xDrive35i 领先型</option><option value="331">现车汇—宝马X4 xDrive20i X设计套装</option><option value="330">现车汇——宝马X5 xDrive35i 领先型</option><option value="329">现车汇—X5 xDrive30d（柴油）</option><option value="328">现车汇—X3 xDrive 20i 领先型</option><option value="327">现车汇—X6 xDrive35i</option><option value="326">现车汇—X4 xDrive35i M设计套装</option><option value="325">现车汇—X3 xDrive28i X设计套装</option><option value="324">《汽车非常道》老爷车展第二期</option><option value="323">2014老爷车展微信报名成功页面</option><option value="322">《汽车非常道》老爷车展第一期</option><option value="321">2014老爷车展微信推广</option><option value="320">成都车展列表页新车报道</option><option value="319"> 汽车品牌时代的成与思</option><option value="318">东风标致新一代408上市</option><option value="317">《汽车非常道》8月第四期</option><option value="316">2014中国国际老爷车展览会</option><option value="315">一周精彩69</option><option value="314">现车汇第五期—X3 xDrive28i领先型</option><option value="313">现车汇第五期—X3 xDrive20i 领先型</option><option value="312">现车汇第五期—宝马X系列</option><option value="311">《汽车非常道》8月第三期</option><option value="310">现车汇第四期—A 45 AMG 4MATIC黑轮毂</option><option value="309">现车汇第四期—A 45 AMG 4MATIC黑轮毂</option><option value="308">现车汇第四期-C 63 AMG Coupe Edition 507</option><option value="307">一周精彩68</option><option value="306">汽车反垄断重锤开局</option><option value="305">现车汇第四期—2014款C63AMG Edition507</option><option value="304">现车汇第四期—2014款 A 45 AMG 4MATIC</option><option value="303">现车汇第四期—2013款 G 63 AMG白色</option><option value="302">现车汇第四期—2013款 G 63 AMG 黑色2</option><option value="301">现车汇第四期—2013款 G 63 AMG黑色1</option><option value="300">现车汇第四期—ML 63 AMG</option><option value="299">现车汇第四期—S 65 L AMG</option><option value="298">现车汇第四期—S63L AMG 4MATIC</option><option value="297">现车汇第四期—奔驰AMG</option><option value="296">2014中国汽车浦东论坛</option><option value="295">新动2014（第六届）中国新能源汽车盛典</option><option value="294">2014莫斯科车展</option><option value="293">2014中国汽车品牌营销峰会</option><option value="292">《汽车非常道》8月第二期</option><option value="291">一周精彩67</option><option value="290">北京奔驰全新C级上市</option><option value="289">2014成都车展</option><option value="288">成都车展预埋专题</option><option value="287">《汽车非常道》8月第一期</option><option value="286">一周精彩66</option><option value="285">2014浦东车展</option><option value="284">《汽车非常道》7月第五期</option><option value="283">反垄断调查能否榨干豪车“水分”？</option><option value="282">现车汇第三期——10 奔驰S400L豪华型</option><option value="281">现车汇第三期——9 奔驰S400L尊贵型</option><option value="280">现车汇第三期——8 奔驰S320L商务型</option><option value="279">现车汇第三期——7 奔驰S500L 4MATIC ‍</option><option value="278">现车汇第三期——6 奔驰S400L尊贵型</option><option value="277">现车汇第三期——5 奔驰S400L豪华型</option><option value="276">现车汇第三期——4 奔驰S320L豪华型</option><option value="275">现车汇第三期——3 奔驰S400L尊贵型</option><option value="274">现车汇第三期——2奔驰S320L商务型</option><option value="273">现车汇第三期——1 奔驰S400L尊贵型曜岩黑</option><option value="272">现车汇第三期奔驰S级</option><option value="271">一周精彩65</option><option value="270">2014巴黎预埋专题</option><option value="268">广州预埋专题</option><option value="267">2014洛杉矶预埋专题</option><option value="265">现车汇保时捷Macan</option><option value="264">《汽车非常道》7月第四期</option><option value="263">现车汇第二期——保时捷MACAN 黑米719</option><option value="262">现车汇第二期——保时捷MACAN 黑黑719</option><option value="261">现车汇第二期——保时捷MACAN 铑银719</option><option value="260">现车汇第二期——保时捷MACAN 白色719</option><option value="259">现车汇第二期——保时捷MACAN S黑色719</option><option value="258">现车汇第二期——保时捷MACAN  钯银719</option><option value="257">现车汇第二期——保时捷MACAN S白720</option><option value="256">现车汇第二期——保时捷MACAN 黑外米内719</option><option value="255">现车汇第二期——保时捷MACAN 718玛瑙灰</option><option value="254">一周精彩64</option><option value="253">轩辕坛-公车改革如何落到实处</option><option value="252">现车汇第二期：保时捷macan黑黑718</option><option value="251">现车汇特斯拉 MODEL S 外红内黑版</option><option value="250">现车汇特斯拉 MODEL S 外白内黑版</option><option value="249">现车汇特斯拉 MODEL S 外白内米版</option><option value="248">现车汇特斯拉 MODEL S 外墨绿色内米版</option><option value="247">现车汇特斯拉 MODEL S （外棕内黑版）</option><option value="246">现车汇特斯拉 MODEL S （外白内黑版SP85</option><option value="245">现车汇特斯拉MODEL S 外白内米版2</option><option value="244">共谋未来—凤凰汽车年中行业沟通会</option><option value="243">《汽车非常道》7月第三期</option><option value="242">现车汇特斯拉 MODEL S （外白内黑版 2）</option><option value="241">现车汇特斯拉 MODEL S （外棕内灰版 2）</option><option value="240">现车汇特斯拉 MODEL S （外红内黑版2）</option><option value="239">现车汇</option><option value="238">一周精彩63</option><option value="237">变局:2014上半年车市销量策划</option><option value="236">世界杯狂欢夜</option><option value="235">广汽丰田雷凌上市</option><option value="234">《汽车非常道》7月第二期</option><option value="233">一周精彩62</option><option value="232">《轩辕坛》新能源汽车最后一公里</option><option value="231">中国主流汽车网络媒体高层论坛</option><option value="230">《汽车非常道》7月第一期</option><option value="229">豪车放价团购</option><option value="228">一周精彩61</option><option value="227">《车迹》—车艳华眼中的捷豹</option><option value="226">2014招聘</option><option value="225">车·晓第21期</option><option value="224">《轩辕坛》车企缘何热衷于体育营销</option><option value="223">《汽车非常道》6月第四期</option><option value="222">一周精彩60</option><option value="221">《汽车非常道》6月第三期</option><option value="220">丰田全新卡罗拉上市 售价10.78-15.98万元</option><option value="219">一周精彩59</option><option value="218">中国品牌玩转世界杯</option><option value="217">一周精彩58</option><option value="216">千万购车梦想基金之世界杯购车季</option><option value="215">《汽车非常道》6月第一期</option><option value="214">汽车人之夜</option><option value="213">汽车互联网思维</option><option value="212">一周精彩57</option><option value="211">重庆论坛2014</option><option value="210">《汽车非常道》6月第二期</option><option value="209">2014重庆车展</option><option value="208">深港澳车展</option><option value="207">安全童行</option><option value="206">外交观</option><option value="205">六一端午特惠购车专场</option><option value="204">2014埃斯特庄园老爷车展</option><option value="203">一周精彩56</option><option value="202">《汽车非常道》5月第四期</option><option value="201">《汽车非常道》5月第三期</option><option value="200">马自达昂克赛拉上市 售价11.49-15.99万元</option><option value="199">一周精彩55</option><option value="198">告别“假国三” 国四实施有多难？</option><option value="197">好爸好妈晒萌宝</option><option value="196">《汽车非常道》5月第二期</option><option value="195">一周精彩54</option><option value="194">车·晓第20期：新能源产业联盟意义</option><option value="193">重拾信心：电动车百人会成立</option><option value="192">《汽车非常道》5月第一期</option><option value="191">2014北京国际车展SUV研讨</option><option value="190">购车季</option><option value="189">fm1039北京车展车展之最</option><option value="188">fm1039北京车展老爷车</option><option value="187">2014北京车展最火模特</option><option value="186">fm1039北京车展设计之美</option><option value="185">疯狂车市</option><option value="184">万万没想到</option><option value="183">fm1039北京车展概念车</option><option value="182">测试专题</option><option value="181">2014北京车展-行业策划（总编室）</option><option value="180">汽车女公关的北京爱情宣言</option><option value="179">锵锵话车展</option><option value="178">赵福全研究院</option><option value="177">北京车展极速版测试</option><option value="176">2014北京车展-极速版</option><option value="175">北京车展新车导购列表</option><option value="174">北京车展新车报道列表</option><option value="173">北京车展新车图解列表</option><option value="172">北京车展嘉宾访谈</option><option value="171">2014梦想之车评选</option><option value="170">北京车展最有看点车型</option><option value="169">北京车展排行榜</option><option value="168">2014北京车展精华版</option><option value="167">《汽车非常道》4月第三期</option><option value="166">一周精彩53</option><option value="165">一周精彩52</option><option value="164">2014纽约车展展中版</option><option value="163">技术赶超—新技术展望</option><option value="162">《汽车非常道》4月第二期</option><option value="161">【车迹】“少壮派”蔡建军：DS驾驭者</option><option value="160">2014纽约车展预热版</option><option value="159">《汽车非常道》4月第一期</option><option value="158">测试迈瑞宝</option><option value="157">一周精彩51</option><option value="156">购车基金</option><option value="155">迈锐宝纪念活动</option><option value="154">杭州限购</option><option value="153">fm1039留言系统</option><option value="152">《汽车非常道》3月第四期</option><option value="151">最女神--2014北京国际车展模特大赛</option><option value="150">一周精彩50</option><option value="149">活动申请车标</option><option value="148">《汽车非常道》3月第三期</option><option value="147">东风日产新奇骏上市 售价18.18-26.78万元</option><option value="146">一周精彩49</option><option value="145">2014北京车展前传</option><option value="144">信任从何而来2014.3.15视频直播</option><option value="143">信任从何而来2014.3.15</option><option value="142">《车迹》欧阳明高：梦想照进现实</option><option value="141">2014年315维权大讲堂</option><option value="140">一周精彩48</option><option value="139">《汽车非常道》3月第二期</option><option value="138">《汽车非常道》3月第一期</option><option value="137">一周精彩47</option><option value="136">2014lianghui</option><option value="135">《轩辕坛》聚焦汽车两会热点</option><option value="134">北京新能源汽车摇号</option><option value="133">冷眼看两会</option><option value="132">新十年两会专题</option><option value="131">《汽车非常道》2月第三期</option><option value="130">2014两会预热专题</option><option value="129">一周精彩46</option><option value="128">汽车供应链上的“潜规则”</option><option value="126">2014日内瓦展前版</option><option value="125">广州车展2014</option><option value="124">测试车展模板</option><option value="123">北京车展展前版</option><option value="122">凤凰汽车购车消费评价正式发布</option><option value="120">测试专题</option><option value="119">东风收购PSA</option><option value="118">2014日内瓦车展</option><option value="117">fm1039新视频模板</option><option value="116">2014北京车展展前版</option><option value="112">《汽车非常道》2月第一期</option><option value="111">《汽车非常道》2月第二期</option><option value="110">一周精彩45</option><option value="109">全民爱主播（视频测试）</option><option value="108">fm1039新直播模板</option><option value="107">fm1039新音频模板</option><option value="106">汽车营销变法者</option><option value="105">12月汽车进出口销量分析</option><option value="104">2013汽车企业跳槽潮</option><option value="103">《汽车非常道》1月第四期</option><option value="102">春节车市营业时间摸底</option><option value="101">《汽车非常道》1月第三期</option><option value="100">一周精彩44</option><option value="99">非常道视频直播</option><option value="98">一周精彩43</option><option value="97">盛世危局</option><option value="96">第23期轩辕坛</option><option value="92">《汽车非常道》1月第二期</option><option value="91">一周精彩42</option><option value="90">11月份汽车进出口销量分析</option><option value="89">2014主题摄影大赛</option><option value="88">2013中国汽车年度盛典</option><option value="87">一周精彩41</option><option value="86">《汽车非常道》1月第一期</option><option value="85">车展模板测试</option><option value="81">测试</option><option value="80">预见未来：谁将颠覆汽车业？</option><option value="79">梁国锋的北京汽车速度</option><option value="78">一周精彩40</option><option value="77">测试车晓模板</option><option value="76">地方站团购[年末抄底]</option><option value="74">2014北美车展</option><option value="73">一周精彩39</option><option value="72">测试专题</option><option value="71">2013中国汽车年度盛典</option><option value="66">大限已到</option><option value="65">一周精彩38</option><option value="64">变革新动力</option><option value="63">10月份汽车进出口销量分析</option><option value="62">全新大众高尔夫上市 售价:12.19-18.29万元</option><option value="61">一周精彩37</option><option value="60">东风雷诺合资</option><option value="59">一周精彩36</option><option value="58">中国进口汽车大典</option><option value="57">破冰之举中央取消公务车</option><option value="56">王秋景的技术哲学</option><option value="55">广州测站测试</option><option value="54">广州车展列表页嘉宾访谈</option><option value="53">广州车展列表页新车图解</option><option value="52">广州车展列表页新车报道</option><option value="51">广州车展列表页新车导购</option><option value="50">美女4S电</option><option value="49">2013广州车展文章导航</option><option value="48">创新与机遇</option><option value="47">2013中国年度十大汽车评选</option><option value="46">车展备份</option><option value="45">广州车展购车活动</option><option value="44">汽车电商有多远？</option><option value="43">汽车营销渠道变革</option><option value="42">一周精彩35</option><option value="40">下载中心汇总页</option><option value="39">9月汽车进出口销量分析</option><option value="38">一周精彩内容推荐34</option><option value="37">车迹2013</option><option value="36">结论/评级</option><option value="35">使用费用</option><option value="34">购车指南</option><option value="33">安全性</option><option value="32">实测油耗</option><option value="31">越野性能</option><option value="30">驾驶/操控</option><option value="29">动力/性能</option><option value="28">车载多媒体</option><option value="27">舒适性</option><option value="26">便捷性</option><option value="25">储物空间/后备箱</option><option value="24">乘坐空间</option><option value="23">内饰设计/材质/做工</option><option value="22">外观设计/尺寸/功能/做工</option><option value="21">价格/定位/竞争对手</option><option value="20">评分/评级规范</option><option value="19">评价团队</option><option value="18">评价规范</option><option value="17">凤凰汽车购车消费评价报告正式发布</option><option value="16">全民i主播</option><option value="15">2013东京车展</option><option value="14">洛杉矶车展</option><option value="13">凤凰悍马车友会2013首届年会</option><option value="12">友情链接汇总页</option><option value="11">2013年度车评选</option><option value="10">广州车展展前版</option><option value="9">pc首页</option><option value="8">专题模板</option><option value="7">成都车展测试</option></select>  选择所属专题</td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 所属专题栏目                                                                                           </th>
+                            <td><select name='info[special_type]' id='special_type' ><option value="-1" selected>选择所属专题栏目</option></select>  </td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 内容                                                                                           </th>
+                            <td><div id='content_tip'></div><textarea name="info[content]" id="content" boxid="content">&lt;p&gt;凤凰汽车讯 近日，有经销商向凤凰汽车透露，东风风行全新一代菱智将会在2016年9月份举办的成都车展上市，届时也将公布其全系车型的售价。&lt;/p&gt;
+&lt;p class=&quot;img-c&quot; align=&quot;center&quot;&gt;&lt;a href=&quot;http://data.auto.ifeng.com/pic/g-20346.html#pid=2493991&quot; target=&quot;_blank&quot; title=&quot;东风风行全新菱智&quot;&gt;&lt;img src=&quot;http://a0.ifengimg.com/autoimg/91/39/2493991_8.jpg&quot;/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;img-c&quot; align=&quot;center&quot;&gt;&lt;a href=&quot;http://data.auto.ifeng.com/pic/g-20346.html#pid=2493993&quot; target=&quot;_blank&quot; title=&quot;东风风行全新菱智&quot;&gt;&lt;img src=&quot;http://a0.ifengimg.com/autoimg/93/39/2493993_8.jpg&quot;/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;菱智是一款商用MPV车型，换代车型一改以往朴实的形象，变得商务范儿十足，大型的镀铬格栅以及层次丰富的车灯都为全新菱智带来足够的时代感。据悉，新一代菱智在车身尺寸上与现在的车型保持类似，并有望提供轴距2800毫米和3000毫米的两个版本车型。&lt;/p&gt;
+&lt;p class=&quot;img-c&quot; align=&quot;center&quot;&gt;&lt;a href=&quot;http://data.auto.ifeng.com/pic/g-20346.html#pid=2493994&quot; target=&quot;_blank&quot; title=&quot;东风风行全新菱智&quot;&gt;&lt;img src=&quot;http://a0.ifengimg.com/autoimg/94/39/2493994_8.jpg&quot;/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;内饰的变化更加突出，此前曝光的谍照清晰的展示了其前控制台区域，三种色彩搭配镀铬装饰条，带来与外观类似的商务风格，就设计来说比现款菱智年轻了至少20岁。&lt;/p&gt;
+
+&lt;p&gt;动力方面，全新一代菱智有望搭配东风与PSA合作的2.0升自然吸气发动机，也能解决现款1.6升排量车型动力一般的问题。（本文配图来源：爱卡）
+&lt;/p&gt;</textarea><script type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/ckeditor/ckeditor.js?v=3.6"></script><script type="text/javascript">
+                                CKEDITOR.replace( 'content',{height:300,width:650,pages:true,subtitle:true,textareaid:'content',module:'content',catid:'571',
+                                    flashupload:true,alowuploadexts:'',allowbrowser:'1',allowuploadnum:'10',authkey:'c0996c31be48137d89a27b67391e7680',
+                                    filebrowserUploadUrl : 'http://cms.data.auto.ifeng.com/index.php?m=attachment&c=attachments&a=upload&module=content&catid=571&dosubmit=1',
+                                    toolbar :
+                                            [
+                                                ['Source'],['Preview'],['Bold', 'Italic','-','FontSize','TextColor','-', 'Link', 'Unlink','HorizontalRule', '-', 'NumberedList', 'BulletedList' ],  ['JustifyLeft','JustifyCenter','JustifyRight'], ['Undo','Redo','-','Find','Replace'],['ShowBlocks','Maximize'],
+                                            ]
+                                });
+                            </script><div class='editor_bottom'><script type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/swfupload/swf2ckeditor.js?v=1.22"></script><div id='page_title_div'>
+                                <table cellpadding='0' cellspacing='1' border='0'><tr><td class='title'>子标题<span id='msg_page_title_value'></span></td><td>
+                                    <a class='close' href='javascript:;' onclick='javascript:$("#page_title_div").hide();'><span>×</span></a></td>
+                                    <tr><td colspan='2'><input name='page_title_value' id='page_title_value' class='input-text' value='' size='30'>&nbsp;<input type='button' class='button' value='提交' onclick=insert_page_title("content",1)></td></tr>
+                                </table></div></div>  <div id="rstnotice" style="display:none" class="content_attr">您有上次未提交成功的数据 <a class="xi2" href="javascript:;" onclick="userdataoption(1)"><strong>恢复数据</strong></a>&nbsp;&nbsp;<a href="javascript:;" title="清除内容" class="d y" onclick="userdataoption(0)">关闭</a>&nbsp;&nbsp;&nbsp;&nbsp;注意:如果你看到我的话，是不能自动记录的</div><div id="e_bbar" class="content_attr"><em id="e_tip">数据自动保存已开启</em><span id="e_svdsecond"><a title="点击关闭自动保存" href="javascript:;" onclick="setAutosave()">300 秒后保存</a> </span><a href="javascript:;" onclick="tempcode('svd');return false;" id="e_svd">保存数据</a> |<a href="javascript:;" onclick="tempcode('rst');return false;" id="e_rst">恢复数据</a> &nbsp;&nbsp;</div><div class="content_attr"><label><input name="add_introduce" type="checkbox"  value="1" checked>是否截取内容</label><input type="text" name="introcude_length" value="200" size="3">字符至内容摘要</div></td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 分页方式                                                                                           </th>
+                            <td><select name="info[paginationtype]" id="paginationtype" onchange="if(this.value==1)$('#paginationtype1').css('display','');else $('#paginationtype1').css('display','none');"><option value="0" >不分页</option><option value="1" >自动分页</option><option value="2" selected>手动分页</option></select><span id="paginationtype1" style="display:none"><input name="info[maxcharperpage]" type="text" id="maxcharperpage" value="10000" size="8" maxlength="8">字符数（包含HTML标记）</span>  </td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 专栏作家                                                                                           </th>
+                            <td><select name='info[columnist]' id='columnist' ><option value="" selected>选择专栏作家</option></select>  选择专栏作家</td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 推荐位                                                                                           </th>
+                            <td><input type='hidden' name='info[posids][]' value='-1'><label class="ib" style="width:125px"><input type="checkbox" name='info[posids][]' id="_1"  value="8"> 手机推荐文章</label><label class="ib" style="width:125px"><input type="checkbox" name='info[posids][]' id="_2"  value="12"> 汽首精华推荐</label>  </td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 视屏链接地址                                                                                           </th>
+                            <td><input type="text" name="info[videourl]" id="videourl" size="50" value="" class="input-text"  >  请输入视频连接地址</td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 视频宽度                                                                                           </th>
+                            <td><input type="text" name="info[video_width]" id="video_width" size="50" value="480" class="input-text"  >  输入视频宽度</td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 添加投票                                                                                           </th>
+                            <td><input type='text' name='info[voteid]' id='voteid' value='0' size='3'>
+                                <input type='button' value="选择已有投票" onclick="omnipotent('selectid','?m=vote&c=vote&a=public_get_votelist&from_api=1','选择已有投票')" class="button">
+                                <input type='button' value="新增投票" onclick="omnipotent('addvote','?m=vote&c=vote&a=add&from_api=1','添加投票',0)" class="button">  </td>
+                        </tr>
+                        <tr>
+                            <th width="80"> 视频高度                                                                                           </th>
+                            <td><input type="text" name="info[video_height]" id="video_height" size="50" value="320" class="input-text"  >  </td>
+                        </tr>
+
+                        </tbody></table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <div class="fixed-bottom">
+        <div class="fixed-but text-c">
+            <div class="button">
+                <input value="" type="hidden" name="upgrade">
+                <input value="1055982" type="hidden" name="id"><input value="确认后自动关闭" type="submit" name="dosubmit" class="cu" onclick="refersh_window();userdataoption(0);"></div>
+            <div class="button"><input value="确认并继续发表" type="submit" name="dosubmit_continue" class="cu" onclick="refersh_window();userdataoption(0);"></div>
+            <div class="button"><input value="关闭(X)" type="button" name="close" onclick="refersh_window();close_window();" class="cu" title="Alt+X"></div>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
+<script type="text/javascript">
+    <!--
+    //只能放到最下面
+    var openClose = $("#RopenClose"), rh = $(".addContent .col-auto").height(),colRight = $(".addContent .col-right"),valClose = getcookie('openClose');
+    $(function(){
+        if(valClose==1){
+            colRight.hide();
+            openClose.addClass("r-open");
+            openClose.removeClass("r-close");
+        }else{
+            colRight.show();
+        }
+        openClose.height(rh);
+        $.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){window.top.art.dialog({content:msg,lock:true,width:'200',height:'50'}, 	function(){$(obj).focus();
+            boxid = $(obj).attr('id');
+            if($('#'+boxid).attr('boxid')!=undefined) {
+                check_content(boxid);
+            }
+        })}});
+        //$("#title").formValidator({onshow:"",onfocus:"请输入标题"}).inputValidator({min:1,max:80,onerror:"标题不能为空"});                                                                    //         $("#publish").formValidator({onshow:"",onfocus:"发布文章只能为当天文章"}).functionValidator({
+        //	    fun:function(val,elem){
+        //                    var checked = $("#publish").attr("checked");
+        //                    if(checked){
+        //                        var time = $("#inputtime").val();
+        //                        var temp = time.split(" ");
+        //                        var day = temp[0].split("-");
+        //                        var date = new Date(day[0], day[1]-1, day[2]);
+        //                        var currentDate = new Date();
+        //                        if(currentDate >= date){
+        //                            return true;
+        //                        }else{
+        //                            return "发布文章只能为当天文章";
+        //                        }
+        //                    }else{
+        //                        return true;
+        //                    }
+        //		}
+        //	});
+
+        $("#relatedseries").formValidator({onshow:"",onfocus:"",oncorrect:""}).functionValidator({
+            fun:function(val,elem){
+                if(!val){
+                    if(confirm("没有绑定车系，是否继续执行")){
+                        return true;
+                    }else{
+                        return "请绑定车系";
+                    }
+                }
+                return true;
+
+            }
+        });
+
+
+
+
+
+
+        $("#title").formValidator({onshow:"",onfocus:""}).inputValidator({min:1,max:18,onerror:"标题不超过18个字符,且不能为空"});
+        $("#middle_title").formValidator({onshow:"",onfocus:""}).inputValidator({min:1,max:28,onerror:"副标题不超过14个字符,且不能为空"});
+        $("#short_title").formValidator({onshow:"",onfocus:""}).inputValidator({min:1,max:20,onerror:"短标题不超过10个字符,且不能为空"});
+        //    $("#content").formValidator({onshow:"",onfocus:"",oncorrect:""}).functionValidator({
+        //	    fun:function(val,elem){
+        //                    var content = $("#content").val();
+        //                    if(content.indexOf('海尔')>-1){
+        //                        if(confirm("所有涉及海尔负面稿件,均不得发布,确定继续发布？")){
+        //					return true;
+        //				}else{
+        //					return "请修改相关内容";
+        //				}
+        //                    }else if(content.indexOf('东方IC')>-1){
+        //                        if(confirm("所有涉及东方IC负面稿件,均不得发布,确定继续发布？")){
+        //					return true;
+        //				}else{
+        //					return "请修改相关内容";
+        //				}
+        //                    }else{
+        //                        return true;
+        //                    }
+        //		}
+        //	});
+
+        $("#content").formValidator({onshow:"",onfocus:"",oncorrect:""}).functionValidator({
+            fun:function(val,elem){
+                var content = CKEDITOR.instances.content.getData();
+                var copyfrom = $("#copyfrom").val();
+                var msg = 1;
+                $.ajax({
+                    type:"post",
+                    async:false,
+                    url:"?m=admin&c=badword&a=check_badword",
+                    data:{content:content,source:copyfrom},
+                    dataType:"json",
+                    success:function(json){
+                        if(json.msg==1){
+                            if(confirm("所有涉及"+json.data+"负面稿件,均不得发布,确定继续发布？")){
+                                //return true;
+                            }else{
+                                msg="请修改相关内容";
+                            }}else if(json.msg==2){
+                            msg = "所有涉及"+json.data+"稿件均不得发布,请修改相关内容";
+                        }else if(json.msg==3){
+                            msg = json.data+"来源文章均不得发布,请修改文章来源";
+                        }
+                    },
+                    error:function(){}
+                });
+                return msg;
+            }
+        });
+//                                                                    $("#content").formValidator({onshow:"",onfocus:"",oncorrect:""}).functionValidator({
+//                                                                        fun:function(val,elem){
+//                                                                            var content = CKEDITOR.instances.content.getData();
+//                                                                            var arr=new Array("海尔","东方IC","全网讯","凤凰网","北京天盈九州网络技术有限公司","齐鲁晚报",'大众网','农村大众网','齐鲁晚报网','生活日报网','半岛网','鲁中网','法制网','导报网','大众日报','农村大众报','齐鲁晚报','生活日报','经济导报','城市信报','鲁中晨报','半岛都市报','山东法制报','现代交通报','潍坊晚报','沂蒙晚报','鲁南商报','新晨报','青年记者','城色','今参考');
+//                                                                            for(var i = 0;i < arr.length; i++){
+//                                                                                if(content.indexOf(arr[i])>-1){
+//                                                                                    if(confirm("所有涉及"+arr[i]+"负面稿件,均不得发布,确定继续发布？")){
+//                                                                                        //return false;
+//                                                                                        continue;
+//                                                                                    }else{
+//                                                                                        return "请修改相关内容";
+//                                                                                    }
+//                                                                                }
+//                                                                            }
+//                                                                            if(content.indexOf('百家乐')>-1){
+//                                                                                return "所有涉及百家乐稿件均不得发布,请修改相关内容";
+//                                                                            }
+//                                                                            return true;
+//
+//                                                                        }
+//                                                                    });
+        /*
+         * 加载禁用外边链接
+         */
+        jQuery(document).bind('keydown', 'Alt+x', function (){close_window();});
+    })
+    document.title='编辑：全新菱智成都车展上市 内外设计变化大';
+    self.moveTo(0, 0);
+    function refersh_window() {
+        setcookie('refersh_time', 1);
+        saveUserdata('lz'+cms_userid, '');
+    }
+    openClose.click(
+            function (){
+                if(colRight.css("display")=="none"){
+                    setcookie('openClose',0,1);
+                    openClose.addClass("r-close");
+                    openClose.removeClass("r-open");
+                    colRight.show();
+                }else{
+                    openClose.addClass("r-open");
+                    openClose.removeClass("r-close");
+                    colRight.hide();
+                    setcookie('openClose',1,1);
+                }
+            }
+    )
+
+    $(document).ready(function(){
+        //来源添加监听
+        $("#copyfrom_data").change(function(){
+            $("#copyfrom").val($("#copyfrom_data option:selected").text());
+        });
+        $("#copyfrom").blur(function(){
+            var value = $(this).val().trim();
+            if(value != '凤凰汽车'){
+                $("#copyfrom_data option[value='0']").attr("selected", 'selected');
+                $("#copyfrom_data option[value!='0']").removeAttr("selected");
+            }
+        });
+
+        //编辑状态下
+        $("#e_publish").click(function(){
+            $("#status").val($(this).val());
+        });
+        $("#e_reserve").click(function(){
+            $("#status").val($(this).val());
+        });
+
+
+    });
+    //-->
+</script>
+<script language="javascript" type="text/javascript" src="http://cms.data.auto.ifeng.com/statics/js/content.js?v=8.0"></script>
